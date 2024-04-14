@@ -1,0 +1,11 @@
+Flask==3.0.3
+Flask-SQLAlchemy==3.1.1
+SQLAlchemy==2.0.29
+Werkzeug==3.0.2
+Flask-WTF==1.2.1
+WTForms==3.1.2
+Bootstrap-Flask==2.4.0
+Flask-CKEditor==0.5.1
+Flask-Login==0.6.3
+gunicorn==21.2.0
+psycopg2-binary==2.9.9
