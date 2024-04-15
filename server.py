@@ -9,7 +9,7 @@ from sqlalchemy import Integer, String, Text, ForeignKey
 from functools import wraps
 from werkzeug.security import generate_password_hash, check_password_hash
 from forms import CreatePostForm, RegisterForm, LoginForm, CommentForm
-from smtplib import SMTP
+from smtplib import SMTP_SSL
 import hashlib
 import os
 
@@ -36,8 +36,7 @@ def gravatar(email, size=100, rating="g", default="retro", force_default=False):
 # Configure send_email function
 def send_email(name, email, phone, message):
     email_message = f"Subject:New Message\n\nName: {name}\nEmail: {email}\nPhone: {phone}\nMessage: {message}"
-    with SMTP("smtp.gmail.com") as connection:
-        connection.starttls()
+    with SMTP_SSL("smtp.gmail.com") as connection:
         connection.login(MAIL_ADDRESS, MAIL_APP_PASSWORD)
         connection.sendmail(MAIL_ADDRESS, MAIL_ADDRESS, email_message)
 
